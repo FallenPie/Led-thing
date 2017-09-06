@@ -49,6 +49,10 @@ def ledtoggle():
     GPIO.cleanup()
     win.destroy()
 
+def Quit():
+    GPIO.cleanup()
+    win.destroy()
+
 win.title("GPIO light blinks")
 
 myfont=tkinter.font.Font(family = 'Helvetica', size = 12, weight = "bold")
@@ -56,7 +60,8 @@ Label(win, text="How many blinks? ").grid(row=0)
 Button(win, text="+", command=Up).grid(row=0, column=1)
 Button(win, text="-", command=Down).grid(row=0, column=2)
 Label(win, text=" %d " %blinks, textvariable=strblinks).grid(row=0, column=3)
-Button(win, text="Run", command=ledsetup).grid(row=0, column=4)
-#Button(win, text="Quit", command=win.destroy).grid(row=1, column=4)
+Button(win, text="Run", command=ledsetup, width=6).grid(row=0, column=4)
+Button(win, text="Quit", command=Quit, width=6).grid(row=1, column=4)
 
 win.mainloop()
+
