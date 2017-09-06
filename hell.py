@@ -11,10 +11,10 @@ lis = [8, 10, 12, 16, 18, 22, 24, 26, 32]
 
 light = 9
 blinks = 1
-ello = StringVar()
-ello.set(str(blinks))
+strblinks = StringVar()
+strblinks.set(str(blinks))
 
-def hello():
+def ledsetup():
     i = 0
     for i in range (light):
         GPIO.setup(lis[i],GPIO.OUT)
@@ -28,13 +28,13 @@ def Down():
         return
     else:    
         blinks-=1
-        ello.set(str(blinks))
+        strblinks.set(str(blinks))
         win.update_idletasks()
     
 def Up():
     global blinks
     blinks+=1
-    ello.set(str(blinks))
+    strblinks.set(str(blinks))
     win.update_idletasks()
 
 def ledtoggle():
@@ -55,8 +55,8 @@ myfont=tkinter.font.Font(family = 'Helvetica', size = 12, weight = "bold")
 Label(win, text="How many blinks? ").grid(row=0)
 Button(win, text="+", command=Up).grid(row=0, column=1)
 Button(win, text="-", command=Down).grid(row=0, column=2)
-Label(win, text=" %d " %blinks, textvariable=ello).grid(row=0, column=3)
-Button(win, text="Run", command=hello).grid(row=0, column=4)
+Label(win, text=" %d " %blinks, textvariable=strblinks).grid(row=0, column=3)
+Button(win, text="Run", command=ledsetup).grid(row=0, column=4)
 #Button(win, text="Quit", command=win.destroy).grid(row=1, column=4)
 
 win.mainloop()
