@@ -1,4 +1,3 @@
-
 import RPi.GPIO as GPIO
 from tkinter import *
 import tkinter.font
